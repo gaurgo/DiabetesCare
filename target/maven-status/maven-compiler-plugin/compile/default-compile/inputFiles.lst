@@ -1,0 +1,17 @@
+/home/gustavo/Documents/workspace-sts-3.7.0.RELEASE/DiabetesCare/src/main/java/co/edu/unicauca/diabetescare/plan/Type2DiabetesMellitusCarePlan.java
+/home/gustavo/Documents/workspace-sts-3.7.0.RELEASE/DiabetesCare/src/main/java/co/edu/unicauca/diabetescare/plan/SendMessageByEmailPlanComposer.java
+/home/gustavo/Documents/workspace-sts-3.7.0.RELEASE/DiabetesCare/src/main/java/co/edu/unicauca/diabetescare/config/ServletInitializer.java
+/home/gustavo/Documents/workspace-sts-3.7.0.RELEASE/DiabetesCare/src/main/java/co/edu/unicauca/diabetescare/persistency/VirtuosoStorageRepository.java
+/home/gustavo/Documents/workspace-sts-3.7.0.RELEASE/DiabetesCare/src/main/java/co/edu/unicauca/diabetescare/model/ClientTokenStorage.java
+/home/gustavo/Documents/workspace-sts-3.7.0.RELEASE/DiabetesCare/src/main/java/co/edu/unicauca/diabetescare/DataInterpreter.java
+/home/gustavo/Documents/workspace-sts-3.7.0.RELEASE/DiabetesCare/src/main/java/co/edu/unicauca/diabetescare/config/JerseyConfig.java
+/home/gustavo/Documents/workspace-sts-3.7.0.RELEASE/DiabetesCare/src/main/java/co/edu/unicauca/diabetescare/config/WebMvcConfig.java
+/home/gustavo/Documents/workspace-sts-3.7.0.RELEASE/DiabetesCare/src/main/java/co/edu/unicauca/diabetescare/plan/SendMessageByEmail.java
+/home/gustavo/Documents/workspace-sts-3.7.0.RELEASE/DiabetesCare/src/main/java/co/edu/unicauca/diabetescare/plan/Plan.java
+/home/gustavo/Documents/workspace-sts-3.7.0.RELEASE/DiabetesCare/src/main/java/co/edu/unicauca/diabetescare/config/SecurityConfig.java
+/home/gustavo/Documents/workspace-sts-3.7.0.RELEASE/DiabetesCare/src/main/java/co/edu/unicauca/diabetescare/persistency/ClientTokenStorageRepository.java
+/home/gustavo/Documents/workspace-sts-3.7.0.RELEASE/DiabetesCare/src/main/java/co/edu/unicauca/diabetescare/control/Oauth2RedirectUriController.java
+/home/gustavo/Documents/workspace-sts-3.7.0.RELEASE/DiabetesCare/src/main/java/co/edu/unicauca/diabetescare/DiabetesCareApplication.java
+/home/gustavo/Documents/workspace-sts-3.7.0.RELEASE/DiabetesCare/src/main/java/co/edu/unicauca/diabetescare/plan/Type2DiabetesMellitusCarePlanComposer.java
+/home/gustavo/Documents/workspace-sts-3.7.0.RELEASE/DiabetesCare/src/main/java/co/edu/unicauca/diabetescare/config/CamundaConfig.java
+/home/gustavo/Documents/workspace-sts-3.7.0.RELEASE/DiabetesCare/src/main/java/co/edu/unicauca/diabetescare/control/PlanController.java

@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: Diabetes-Care
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: gustavo
+Implementation-Vendor-Id: esalud.unicauca.edu.co
+Build-Jdk: 1.8.0_60
+Created-By: Maven Integration for Eclipse
+Implementation-Vendor: Pivotal Software, Inc.
+Main-Class: co.edu.unicauca.diabetescare.DiabetesCareApplication
+

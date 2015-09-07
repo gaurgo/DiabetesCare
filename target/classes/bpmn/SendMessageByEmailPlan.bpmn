@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:camunda="http://activiti.org/bpmn" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd" id="_jolC8CpiEeWds8Heoa9qAw" exporter="camunda modeler" exporterVersion="2.6.0" targetNamespace="http://activiti.org/bpmn">
+  <bpmn2:process id="SendMessageByEmailPlan" isExecutable="true">
+    <bpmn2:extensionElements>
+      <camunda:executionListener delegateExpression="${sendMessageByEmailPlan}" event="start"/>
+      <camunda:executionListener delegateExpression="${sendMessageByEmailPlan}" event="end"/>
+    </bpmn2:extensionElements>
+    <bpmn2:sendTask id="sendMessageByEmail" camunda:delegateExpression="${sendMessageByEmailPlan}" name="Send message by email">
+      <bpmn2:incoming>SequenceFlow_2</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_3</bpmn2:outgoing>
+    </bpmn2:sendTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_3" name="" sourceRef="sendMessageByEmail" targetRef="EndEvent_1"/>
+    <bpmn2:startEvent id="StartEvent_2">
+      <bpmn2:extensionElements>
+        <camunda:formData>
+          <camunda:formField id="source" label="Source" type="string"/>
+          <camunda:formField id="recipient" label="Recipient" type="string"/>
+          <camunda:formField id="subject" label="Subject" type="string"/>
+          <camunda:formField id="message" label="Message" type="string"/>
+        </camunda:formData>
+      </bpmn2:extensionElements>
+      <bpmn2:outgoing>SequenceFlow_2</bpmn2:outgoing>
+    </bpmn2:startEvent>
+    <bpmn2:sequenceFlow id="SequenceFlow_2" name="" sourceRef="StartEvent_2" targetRef="sendMessageByEmail"/>
+    <bpmn2:endEvent id="EndEvent_1">
+      <bpmn2:incoming>SequenceFlow_3</bpmn2:incoming>
+    </bpmn2:endEvent>
+  </bpmn2:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="SendMessageByEmailPlan">
+      <bpmndi:BPMNShape id="_BPMNShape_Task_47" bpmnElement="sendMessageByEmail">
+        <dc:Bounds height="80.0" width="100.0" x="546.0" y="231.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_BPMNShape_EndEvent_5" bpmnElement="EndEvent_1">
+        <dc:Bounds height="36.0" width="36.0" x="732.0" y="253.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="0.0" width="0.0" x="750.0" y="294.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_7" bpmnElement="StartEvent_2">
+        <dc:Bounds height="36.0" width="36.0" x="408.0" y="253.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="0.0" width="0.0" x="426.0" y="294.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_2" bpmnElement="SequenceFlow_2" sourceElement="_BPMNShape_StartEvent_7" targetElement="_BPMNShape_Task_47">
+        <di:waypoint xsi:type="dc:Point" x="444.0" y="271.0"/>
+        <di:waypoint xsi:type="dc:Point" x="546.0" y="271.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="6.0" width="6.0" x="520.0" y="271.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_3" bpmnElement="SequenceFlow_3" sourceElement="_BPMNShape_Task_47" targetElement="_BPMNShape_EndEvent_5">
+        <di:waypoint xsi:type="dc:Point" x="646.0" y="271.0"/>
+        <di:waypoint xsi:type="dc:Point" x="732.0" y="271.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="6.0" width="6.0" x="726.0" y="271.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn2:definitions>
