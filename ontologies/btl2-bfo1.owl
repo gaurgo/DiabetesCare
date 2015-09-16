@@ -1,0 +1,411 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY bfo "http://www.ifomis.org/bfo/1.1#" >
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY obo "http://purl.obolibrary.org/obo/" >
+    <!ENTITY btl2 "http://purl.org/biotop/btl2.owl#" >
+    <!ENTITY dc "http://purl.org/dc/elements/1.1/" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY snap "http://www.ifomis.org/bfo/1.1/snap#" >
+    <!ENTITY span "http://www.ifomis.org/bfo/1.1/span#" >
+    <!ENTITY skos "http://www.w3.org/2004/02/skos/core#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<rdf:RDF xmlns="http://purl.org/biotop/btl2-bfo1-ro#"
+     xml:base="http://purl.org/biotop/btl2-bfo1-ro"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:snap="http://www.ifomis.org/bfo/1.1/snap#"
+     xmlns:bfo="http://www.ifomis.org/bfo/1.1#"
+     xmlns:obo="http://purl.obolibrary.org/obo/"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+     xmlns:btl2="http://purl.org/biotop/btl2.owl#"
+     xmlns:span="http://www.ifomis.org/bfo/1.1/span#">
+    <owl:Ontology rdf:about="http://purl.org/biotop/btl2-bfo1">
+        <owl:versionInfo xml:lang="en">28042014</owl:versionInfo>
+        <dc:title xml:lang="en">BTL2-BFO1</dc:title>
+        <skos:definition xml:lang="en">BioTop Lite 2.0 -&gt; Basic Formal ontology 1.1 Mapping</skos:definition>
+        <dc:contributor xml:lang="en">Gustavo A. Uribe</dc:contributor>
+        <dc:publisher xml:lang="en">Institute of Medical Biometry and Medical Informatics, University Medical Center Freiburg, Stefan-Meier-Strasse 26, 79104 Freiburg, Germany</dc:publisher>
+        <dc:rights xml:lang="en">http://creativecommons.org/licenses/by/3.0</dc:rights>
+        <owl:imports rdf:resource="http://purl.org/biotop/btl2.owl"/>
+        <owl:imports rdf:resource="http://www.ifomis.org/bfo/1.1"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/biotop/btl2.owl#Action -->
+
+    <owl:Class rdf:about="&btl2;Action">
+        <rdfs:subClassOf rdf:resource="&span;Process"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/biotop/btl2.owl#AmountOfPureSubstance -->
+
+    <owl:Class rdf:about="&btl2;AmountOfPureSubstance">
+        <rdfs:subClassOf rdf:resource="&snap;Object"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/biotop/btl2.owl#Canonicity -->
+
+    <owl:Class rdf:about="&btl2;Canonicity">
+        <rdfs:subClassOf rdf:resource="&snap;Quality"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/biotop/btl2.owl#CollectiveProcess -->
+
+    <owl:Class rdf:about="&btl2;CollectiveProcess">
+        <owl:equivalentClass rdf:resource="&span;ProcessAggregate"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/biotop/btl2.owl#Compound -->
+
+    <owl:Class rdf:about="&btl2;Compound">
+        <rdfs:subClassOf rdf:resource="&snap;Object"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/biotop/btl2.owl#Disposition -->
+
+    <owl:Class rdf:about="&btl2;Disposition">
+        <owl:equivalentClass rdf:resource="&snap;Disposition"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/biotop/btl2.owl#Function -->
+
+    <owl:Class rdf:about="&btl2;Function">
+        <owl:equivalentClass rdf:resource="&snap;Function"/>
+        <rdfs:comment xml:lang="en">The definition is not coherent with the axioms</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/biotop/btl2.owl#ImmaterialThreeDimensionalPhysicalEntity -->
+
+    <owl:Class rdf:about="&btl2;ImmaterialThreeDimensionalPhysicalEntity">
+        <owl:equivalentClass rdf:resource="&snap;ThreeDimensionalRegion"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/biotop/btl2.owl#InstantaneousProcess -->
+
+    <owl:Class rdf:about="&btl2;InstantaneousProcess">
+        <owl:equivalentClass rdf:resource="&span;ProcessBoundary"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/biotop/btl2.owl#Life -->
+
+    <owl:Class rdf:about="&btl2;Life">
+        <rdfs:subClassOf rdf:resource="&span;Process"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/biotop/btl2.owl#MaterialObject -->
+
+    <owl:Class rdf:about="&btl2;MaterialObject">
+        <owl:equivalentClass rdf:resource="&snap;MaterialEntity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/biotop/btl2.owl#ObjectQuality -->
+
+    <owl:Class rdf:about="&btl2;ObjectQuality">
+        <owl:equivalentClass rdf:resource="&snap;Quality"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/biotop/btl2.owl#OneDimensionalPhysicalEntity -->
+
+    <owl:Class rdf:about="&btl2;OneDimensionalPhysicalEntity">
+        <owl:equivalentClass rdf:resource="&snap;OneDimensionalRegion"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/biotop/btl2.owl#Particular -->
+
+    <owl:Class rdf:about="&btl2;Particular">
+        <owl:equivalentClass rdf:resource="&bfo;Entity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/biotop/btl2.owl#PluralityOfOrganisms -->
+
+    <owl:Class rdf:about="&btl2;PluralityOfOrganisms">
+        <rdfs:subClassOf rdf:resource="&snap;ObjectAggregate"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/biotop/btl2.owl#PointInTime -->
+
+    <owl:Class rdf:about="&btl2;PointInTime">
+        <owl:equivalentClass rdf:resource="&span;TemporalInstant"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/biotop/btl2.owl#Process -->
+
+    <owl:Class rdf:about="&btl2;Process">
+        <owl:equivalentClass rdf:resource="&span;ProcessualEntity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/biotop/btl2.owl#ProcessQuality -->
+
+    <owl:Class rdf:about="&btl2;ProcessQuality">
+        <rdfs:subClassOf rdf:resource="&bfo;Entity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/biotop/btl2.owl#Role -->
+
+    <owl:Class rdf:about="&btl2;Role">
+        <owl:equivalentClass rdf:resource="&snap;Role"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/biotop/btl2.owl#Situation -->
+
+    <owl:Class rdf:about="&btl2;Situation">
+        <rdfs:subClassOf rdf:resource="&span;Process"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/biotop/btl2.owl#SpatioTemporalInstant -->
+
+    <owl:Class rdf:about="&btl2;SpatioTemporalInstant">
+        <owl:equivalentClass rdf:resource="&span;SpatiotemporalInstant"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/biotop/btl2.owl#SpatioTemporalInterval -->
+
+    <owl:Class rdf:about="&btl2;SpatioTemporalInterval">
+        <owl:equivalentClass rdf:resource="&span;SpatiotemporalInterval"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/biotop/btl2.owl#SpatioTemporalRegion -->
+
+    <owl:Class rdf:about="&btl2;SpatioTemporalRegion">
+        <owl:equivalentClass rdf:resource="&span;SpatiotemporalRegion"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/biotop/btl2.owl#TemporalRegion -->
+
+    <owl:Class rdf:about="&btl2;TemporalRegion">
+        <owl:equivalentClass rdf:resource="&span;TemporalRegion"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/biotop/btl2.owl#TimeInterval -->
+
+    <owl:Class rdf:about="&btl2;TimeInterval">
+        <owl:equivalentClass rdf:resource="&span;TemporalInterval"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/biotop/btl2.owl#TwoDimensionalPhysicalEntity -->
+
+    <owl:Class rdf:about="&btl2;TwoDimensionalPhysicalEntity">
+        <owl:equivalentClass rdf:resource="&snap;TwoDimensionalRegion"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/biotop/btl2.owl#ZeroDimensionalPhysicalEntity -->
+
+    <owl:Class rdf:about="&btl2;ZeroDimensionalPhysicalEntity">
+        <owl:equivalentClass rdf:resource="&snap;ZeroDimensionalRegion"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ifomis.org/bfo/1.1#Entity -->
+
+    <rdf:Description rdf:about="&bfo;Entity"/>
+    
+
+
+    <!-- http://www.ifomis.org/bfo/1.1/snap#Disposition -->
+
+    <rdf:Description rdf:about="&snap;Disposition"/>
+    
+
+
+    <!-- http://www.ifomis.org/bfo/1.1/snap#Function -->
+
+    <rdf:Description rdf:about="&snap;Function"/>
+    
+
+
+    <!-- http://www.ifomis.org/bfo/1.1/snap#MaterialEntity -->
+
+    <rdf:Description rdf:about="&snap;MaterialEntity"/>
+    
+
+
+    <!-- http://www.ifomis.org/bfo/1.1/snap#OneDimensionalRegion -->
+
+    <rdf:Description rdf:about="&snap;OneDimensionalRegion"/>
+    
+
+
+    <!-- http://www.ifomis.org/bfo/1.1/snap#Quality -->
+
+    <rdf:Description rdf:about="&snap;Quality"/>
+    
+
+
+    <!-- http://www.ifomis.org/bfo/1.1/snap#Role -->
+
+    <rdf:Description rdf:about="&snap;Role"/>
+    
+
+
+    <!-- http://www.ifomis.org/bfo/1.1/snap#ThreeDimensionalRegion -->
+
+    <rdf:Description rdf:about="&snap;ThreeDimensionalRegion"/>
+    
+
+
+    <!-- http://www.ifomis.org/bfo/1.1/snap#TwoDimensionalRegion -->
+
+    <rdf:Description rdf:about="&snap;TwoDimensionalRegion"/>
+    
+
+
+    <!-- http://www.ifomis.org/bfo/1.1/snap#ZeroDimensionalRegion -->
+
+    <rdf:Description rdf:about="&snap;ZeroDimensionalRegion"/>
+    
+
+
+    <!-- http://www.ifomis.org/bfo/1.1/span#ProcessAggregate -->
+
+    <rdf:Description rdf:about="&span;ProcessAggregate"/>
+    
+
+
+    <!-- http://www.ifomis.org/bfo/1.1/span#ProcessBoundary -->
+
+    <rdf:Description rdf:about="&span;ProcessBoundary"/>
+    
+
+
+    <!-- http://www.ifomis.org/bfo/1.1/span#ProcessualEntity -->
+
+    <rdf:Description rdf:about="&span;ProcessualEntity"/>
+    
+
+
+    <!-- http://www.ifomis.org/bfo/1.1/span#SpatiotemporalInstant -->
+
+    <rdf:Description rdf:about="&span;SpatiotemporalInstant"/>
+    
+
+
+    <!-- http://www.ifomis.org/bfo/1.1/span#SpatiotemporalInterval -->
+
+    <rdf:Description rdf:about="&span;SpatiotemporalInterval"/>
+    
+
+
+    <!-- http://www.ifomis.org/bfo/1.1/span#SpatiotemporalRegion -->
+
+    <rdf:Description rdf:about="&span;SpatiotemporalRegion"/>
+    
+
+
+    <!-- http://www.ifomis.org/bfo/1.1/span#TemporalInstant -->
+
+    <rdf:Description rdf:about="&span;TemporalInstant"/>
+    
+
+
+    <!-- http://www.ifomis.org/bfo/1.1/span#TemporalInterval -->
+
+    <rdf:Description rdf:about="&span;TemporalInterval"/>
+    
+
+
+    <!-- http://www.ifomis.org/bfo/1.1/span#TemporalRegion -->
+
+    <rdf:Description rdf:about="&span;TemporalRegion"/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.2.3.1824) http://owlapi.sourceforge.net -->
+
