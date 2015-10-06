@@ -101,17 +101,38 @@ public class PlanListener implements ExecutionListener, TaskListener{
 			log.trace("Variable class:"+variableClass);
 			
 			String triples="dm2co:"+planId+" btl2:hasPart ?planPart."+
-						" ?planPart rdfs:label \""+variableName+"\"@"+variablesLanguage;
+//						" ?planPart rdfs:label \""+variableName+"\"."+
+						" ?planPart rdfs:label \""+variableName+"\"@"+variablesLanguage+"."+
+						" ?planPart dm2co:hasValue ?prevVariableValue";
+						
+			
 			
 			String informationObjectId="";
 			if(virtuosoStorageRepository.ask(triples))
 			{
 				log.debug("Variable "+variableName+" updated with value "+variableValue);
-				ObjectNode result=virtuosoStorageRepository.select("?planPart", triples);
+				ObjectNode result=virtuosoStorageRepository.select("?planPart ?prevVariableValue", triples);
 				log.trace("?planPart(without parse)="+result);
 				informationObjectId=result.findValue("planPart").get("value").asText();
 				informationObjectId=informationObjectId.substring(informationObjectId.indexOf("#")+1);
+				String prevVariableValue=result.findValue("prevVariableValue").get("value").asText();
 				
+				String variableTypeOrLanguage="";
+				if(variableClass.equals("Date"))
+				{
+					variableTypeOrLanguage = "^^xsd:dateTime.";
+				}
+				else if(variableClass.equals("String"))
+				{
+					variableTypeOrLanguage="@"+variablesLanguage+". ";
+				}
+				else 
+				{		
+					variableTypeOrLanguage="^^xsd:"+variableClass.toLowerCase()+". ";
+				}
+				
+				triples="dm2co:"+informationObjectId+" dm2co:hasValue \""+prevVariableValue+"\""+variableTypeOrLanguage;
+				virtuosoStorageRepository.deleteTriples(triples);
 			}
 			else
 			{
@@ -223,7 +244,7 @@ public class PlanListener implements ExecutionListener, TaskListener{
 			log.trace("Updating process variables"+execution.getVariables());
 			updateVariables(execution.getVariables(),planId,"en");
 			try {
-				dataInterpreter.analyzeData();
+				dataInterpreter.analyzeData("en");
 				updatePlanVariables(planId,execution);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
@@ -241,7 +262,7 @@ public class PlanListener implements ExecutionListener, TaskListener{
 		log.trace("Updating process variables"+delegateTask.getVariables());
 		updateVariables(delegateTask.getVariables(),planId,"en");
 		try {
-			dataInterpreter.analyzeData();
+			dataInterpreter.analyzeData("en");
 			updatePlanVariables(planId,delegateTask);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

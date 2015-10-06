@@ -91,11 +91,10 @@ public class DataInterpreter {
 		
 		// Register any new functions defined in OWL RL
 		SPINModuleRegistry.get().registerAll(owlrlModel, null);
-		
-		
+				
 		Model newTriples=runInferencesWithOWLRL();	
 			
-		insertNewTriples(newTriples);
+		insertNewTriples(newTriples,"en");
 	}
 	
 	private Model runInferencesWithOWLRL() throws Exception
@@ -106,8 +105,8 @@ public class DataInterpreter {
 		
 		// Create and add Model for inferred triples
 		Model newTriples = ModelFactory.createDefaultModel();
-		queryModel.addSubModel(newTriples);			
-		
+		queryModel.addSubModel(newTriples);
+				
 		// Build one big union Model of everything
 		MultiUnion multiUnion = JenaUtil.createMultiUnion(new Graph[] {
 			queryModel.getGraph(),
@@ -147,10 +146,10 @@ public class DataInterpreter {
 		return newTriples;
 	}
 	
-	public void analyzeData() throws Exception {
+	public void analyzeData(String variablesLanguage) throws Exception {
 				
 		Model newTriples = runInferences();
-		insertNewTriples(newTriples);
+		insertNewTriples(newTriples,variablesLanguage);
 		
 		Model temp_model = ModelFactory.createDefaultModel();
 		Resource executablePlanClass = temp_model.createResource("http://purl.org/unicauca/dm2co#ExecutableInServerPlan");
@@ -183,19 +182,21 @@ public class DataInterpreter {
 						String recipient=null;
 						String message=null;
 						planName="SendMessageByEmailPlan";
-							
-						for (StmtIterator properties2 = statement.getSubject().listProperties(temp_model.createProperty("http://purl.org/unicauca/dm2co#hasValue")); properties2.hasNext();) {
-							Statement property2 = (Statement) properties2.next();
-							String field=property2.getObject().toString();
-							log.debug("Plan "+field.substring(0, field.indexOf(':')+1)+field.substring(field.indexOf(':')+1));
-							if(field.substring(0, field.indexOf(':')).equals("recipient"))
-							{
-								recipient=field.substring(field.indexOf(':')+1);
-							} else if(field.substring(0, field.indexOf(':')).equals("message")) {
-								message=field.substring(field.indexOf(':')+1);
-							}
-								
-						}
+						
+						String triples="dm2co:"+planId+" btl2:hasPart ?messagePart."+
+										" ?messagePart rdfs:label ?messageLabel."+
+										" FILTER(?messageLabel=\"message\"@"+variablesLanguage+")."+
+										" ?messagePart dm2co:hasValue ?message."+
+										" dm2co:"+planId+" btl2:hasPart ?recipientPart."+
+										" ?recipientPart rdfs:label ?recipientLabel."+
+										" FILTER(?recipientLabel=\"recipient\"@"+variablesLanguage+")."+
+										" ?recipientPart dm2co:hasValue ?recipient.";
+						ObjectNode result=virtuosoStorageRepository.select("?message ?recipient", triples);
+						message=result.findValue("message").get("value").asText();
+						recipient=result.findValue("recipient").get("value").asText();
+						log.debug("Plan message="+message);
+						log.debug("Plan recipient="+recipient);
+						
 						//TODO: Allow multiple recipients. For example in emergency case: send to carer, family member and EPS
 						//TODO: load subject from rdf
 						variables.set("planId", nodeFactory.textNode(planId));
@@ -238,7 +239,7 @@ public class DataInterpreter {
 	
 	}
 	
-	private void insertNewTriples(Model newTriples) {
+	private void insertNewTriples(Model newTriples, String variablesLanguage) {
 		log.debug("Updating new triplets in virtuoso ...");
 		String triples=" ";
 		int count=0;
@@ -258,7 +259,8 @@ public class DataInterpreter {
 					}
 					else
 					{
-						triples="<"+statement.getSubject()+"> <"+statement.getPredicate()+"> \""+statement.getLiteral().getValue()+"\". ";
+						String literal=statement.getLiteral().getValue()+"";
+						triples="<"+statement.getSubject()+"> <"+statement.getPredicate()+"> \""+literal+"\"@"+variablesLanguage+". ";
 					}
 				}
 				if(!virtuosoStorageRepository.ask(triples))
